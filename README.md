@@ -1,5 +1,5 @@
-`rdcr-github-tests` project setup
-=================================
+GitHub tests project
+====================
 
 Initial setup
 -------------

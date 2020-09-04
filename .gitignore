@@ -1,7 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Example user template
 
-rdcr-github-tests/local_env.sh
+github-tests-project/local_env.sh
 
 # IntelliJ project files
 .idea
