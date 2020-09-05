@@ -51,7 +51,7 @@ variable "project_id" {
 }
 
 variable "region" {
-  default     = "${get_env("DEFAULT_REGION")}"
+  default     = "${local.default_region}"
   type        = string
   description = "Region where resources should be provisioned at"
 }
