@@ -2,6 +2,8 @@
 ### Example user template
 
 github-tests-project/local_env.sh
+github-tests-project/tg_gen_*.tf
+tg_gen_sensitive_*.tf
 
 # IntelliJ project files
 .idea
