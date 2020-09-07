@@ -26,10 +26,11 @@ export TF_VAR_project_id=<PROJECT_ID>
 % gcloud beta billing projects link $TF_VAR_project_id --billing-account=$BILLING_ACCOUNT
 ```
 
-3. Enabling Cloud Build API:
+3. Enable essential APIs:
 
 ```
 gcloud --project $TF_VAR_project_id services enable cloudbuild.googleapis.com
+gcloud --project $TF_VAR_project_id services enable cloudresourcemanager.googleapis.com
 ```
 
 4. Create Terraform state backend bucket:
