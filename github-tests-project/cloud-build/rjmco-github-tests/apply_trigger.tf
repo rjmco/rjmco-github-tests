@@ -128,7 +128,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
   }
 
   github {
-    name  = "gft-rdcr-github-tests"
+    name  = "rjmco-github-tests"
     owner = "rjmco"
     push {
       branch = "^master$"
