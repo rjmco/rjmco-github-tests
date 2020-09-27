@@ -28,7 +28,7 @@ remote_state {
   }
 
   config = {
-    bucket                    = "${get_env("TF_VAR_project_id")}-tfstate"
+    bucket                    = format("%s-tfstate", get_env("TF_VAR_project_id"))
     enable_bucket_policy_only = true
     location                  = local.default_region
     prefix                    = path_relative_to_include()
