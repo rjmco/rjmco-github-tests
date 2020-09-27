@@ -11,12 +11,12 @@ variable "region" {
 }
 
 variable "terraform_version" {
-  default     = "0.13.2"
+  default     = "0.13.3"
   description = "Terraform version which should be used"
   type        = string
 }
 
 variable "terragrunt_version" {
-  default     = "0.23.40"
+  default     = "0.25.1"
   description = "Terragrunt version which should be used"
 }

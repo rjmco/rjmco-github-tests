@@ -15,8 +15,8 @@
 locals {
   default_region           = "europe-west2"
   google_providers_version = "3.37.0"
-  terraform_version        = "0.13.2"
-  terragrunt_version       = "0.23.40"
+  terraform_version        = "0.13.3"
+  terragrunt_version       = "0.25.1"
 }
 
 remote_state {
