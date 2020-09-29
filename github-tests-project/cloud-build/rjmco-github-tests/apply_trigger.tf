@@ -16,7 +16,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
   build {
     step {
       id         = "tg hclfmt check"
-      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      name       = format("eu.gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
       entrypoint = "terragrunt"
       args       = ["hclfmt", "--terragrunt-check"]
       dir        = "github-tests-project"
@@ -31,7 +31,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
 
     step {
       id         = "cloud-build scripts shellcheck"
-      name       = "gcr.io/$PROJECT_ID/shellcheck"
+      name       = "eu.gcr.io/$PROJECT_ID/shellcheck"
       entrypoint = "bash"
       args       = ["-c", "shellcheck *"]
       dir        = "github-tests-project/scripts/"
@@ -40,7 +40,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
 
     step {
       id         = "prepare tf plugin cache"
-      name       = "gcr.io/cloud-builders/gcloud"
+      name       = "eu.gcr.io/cloud-builders/gcloud"
       entrypoint = "bash"
       args       = ["scripts/prepare_tf_plugin_cache.sh"]
       dir        = "github-tests-project"
@@ -54,7 +54,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
 
     step {
       id         = "tg validate-all"
-      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      name       = format("eu.gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
       entrypoint = "terragrunt"
       args       = ["validate-all"]
       dir        = "github-tests-project"
@@ -73,7 +73,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
 
     step {
       id         = "tf fmt check"
-      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      name       = format("eu.gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
       entrypoint = "terraform"
       args       = ["fmt", "-check", "-recursive"]
       dir        = "github-tests-project"
@@ -88,7 +88,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
 
     step {
       id         = "backup tf plugin cache"
-      name       = "gcr.io/cloud-builders/gcloud"
+      name       = "eu.gcr.io/cloud-builders/gcloud"
       entrypoint = "bash"
       args       = ["scripts/backup_tf_plugin_cache.sh"]
       dir        = "github-tests-project"
@@ -101,7 +101,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
 
     step {
       id         = "tg plan-all"
-      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      name       = format("eu.gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
       entrypoint = "terragrunt"
       args       = ["plan-all"]
       dir        = "github-tests-project"
@@ -116,7 +116,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
 
     step {
       id         = "tg apply-all"
-      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      name       = format("eu.gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
       entrypoint = "terragrunt"
       args = [
         "apply-all"
