@@ -26,6 +26,7 @@ resource "google_cloudbuild_trigger" "rjmco_tf_gcp_simple_network_test" {
   project  = var.project_id
   provider = google-beta
   substitutions = {
+    _GOLANG_VERSION     = var.golang_version
     _TERRAFORM_VERSION  = var.terraform_version
     _TERRAGRUNT_VERSION = var.terragrunt_version
   }

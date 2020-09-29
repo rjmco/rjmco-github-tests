@@ -13,10 +13,8 @@
 # limitations under the License.
 
 locals {
-  default_region           = "europe-west2"
-  google_providers_version = "3.37.0"
-  terraform_version        = "0.13.3"
-  terragrunt_version       = "0.25.1"
+  default_region = "europe-west2"
+  versions       = yamldecode(file("versions.yaml"))
 }
 
 remote_state {
@@ -44,11 +42,11 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "${local.google_providers_version}"
+      version = "${local.versions.google_providers}"
     }
     google-beta = {
       source  = "hashicorp/google-beta"
-      version = "${local.google_providers_version}"
+      version = "${local.versions.google_providers}"
     }
   }
 }
@@ -70,15 +68,22 @@ variable "region" {
   description = "Region where resources should be provisioned at"
 }
 
+variable "golang_version" {
+  default     = "${local.versions.golang}"
+  description = "Golang version which should be used"
+  type        = string
+}
+
 variable "terraform_version" {
-  default     = "${local.terraform_version}"
+  default     = "${local.versions.terraform}"
   description = "Terraform version which should be used"
   type        = string
 }
 
 variable "terragrunt_version" {
-  default     = "${local.terragrunt_version}"
+  default     = "${local.versions.terragrunt}"
   description = "Terragrunt version which should be used"
+  type        = string
 }
 EOF
 }

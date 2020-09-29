@@ -15,10 +15,11 @@
 resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
   build {
     step {
-      id   = "tg hclfmt check"
-      name = format("gcr.io/$PROJECT_ID/terragrunt:%s-%s", var.terraform_version, var.terragrunt_version)
-      args = ["hclfmt", "--terragrunt-check"]
-      dir  = "github-tests-project"
+      id         = "tg hclfmt check"
+      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      entrypoint = "terragrunt"
+      args       = ["hclfmt", "--terragrunt-check"]
+      dir        = "github-tests-project"
       env = [
         "TF_IN_AUTOMATION=1",
         "TF_INPUT=0",
@@ -52,10 +53,11 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
     }
 
     step {
-      id   = "tg validate-all"
-      name = format("gcr.io/$PROJECT_ID/terragrunt:%s-%s", var.terraform_version, var.terragrunt_version)
-      args = ["validate-all"]
-      dir  = "github-tests-project"
+      id         = "tg validate-all"
+      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      entrypoint = "terragrunt"
+      args       = ["validate-all"]
+      dir        = "github-tests-project"
       env = [
         "TF_IN_AUTOMATION=1",
         "TF_INPUT=0",
@@ -70,10 +72,11 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
     }
 
     step {
-      id   = "tf fmt check"
-      name = format("gcr.io/$PROJECT_ID/terraform:%s", var.terraform_version)
-      args = ["fmt", "-check", "-recursive"]
-      dir  = "github-tests-project"
+      id         = "tf fmt check"
+      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      entrypoint = "terraform"
+      args       = ["fmt", "-check", "-recursive"]
+      dir        = "github-tests-project"
       env = [
         "TF_IN_AUTOMATION=1",
         "TF_INPUT=0",
@@ -97,10 +100,11 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
     }
 
     step {
-      id   = "tg plan-all"
-      name = format("gcr.io/$PROJECT_ID/terragrunt:%s-%s", var.terraform_version, var.terragrunt_version)
-      args = ["plan-all"]
-      dir  = "github-tests-project"
+      id         = "tg plan-all"
+      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      entrypoint = "terragrunt"
+      args       = ["plan-all"]
+      dir        = "github-tests-project"
       env = [
         "TF_IN_AUTOMATION=1",
         "TF_INPUT=0",
@@ -111,8 +115,9 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
     }
 
     step {
-      id   = "tg apply-all"
-      name = format("gcr.io/$PROJECT_ID/terragrunt:%s-%s", var.terraform_version, var.terragrunt_version)
+      id         = "tg apply-all"
+      name       = format("gcr.io/$PROJECT_ID/go-terraform-terragrunt:%s-%s-%s", var.golang_version, var.terraform_version, var.terragrunt_version)
+      entrypoint = "terragrunt"
       args = [
         "apply-all"
       ]
