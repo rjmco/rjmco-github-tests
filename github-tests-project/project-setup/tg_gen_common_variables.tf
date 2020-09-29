@@ -10,6 +10,12 @@ variable "region" {
   description = "Region where resources should be provisioned at"
 }
 
+variable "golang_version" {
+  default     = "1.15.2"
+  description = "Golang version which should be used"
+  type        = string
+}
+
 variable "terraform_version" {
   default     = "0.13.3"
   description = "Terraform version which should be used"
@@ -19,4 +25,5 @@ variable "terraform_version" {
 variable "terragrunt_version" {
   default     = "0.25.1"
   description = "Terragrunt version which should be used"
+  type        = string
 }
