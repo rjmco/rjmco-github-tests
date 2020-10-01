@@ -30,5 +30,5 @@ FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION}
 WORKDIR /usr/local/bin
 COPY --chown=root:root --from=builder /tmp/terraform .
 COPY --chown=root:root --from=builder /tmp/terragrunt .
-RUN apk add --no-cache git bash openssh && chmod +x /usr/local/bin/terra*
+RUN apk add --no-cache musl-dev gcc git bash openssh && chmod +x /usr/local/bin/terra* && mkdir -p /workspace/tf_plugin_cache
 ENTRYPOINT []
