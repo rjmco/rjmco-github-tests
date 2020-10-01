@@ -55,3 +55,11 @@ gcloud projects add-iam-policy-binding $TF_VAR_project_id \
   --member="serviceAccount:$(gcloud projects describe $TF_VAR_project_id --format='value(projectNumber)')@cloudbuild.gserviceaccount.com" \
   --role=roles/storage.admin
 ```
+
+tf-gcp-simple-network requirements
+----------------------------------
+
+1. Enable the Compute API
+```
+gcloud --project $TF_VAR_project_id services enable compute.googleapis.com
+```
