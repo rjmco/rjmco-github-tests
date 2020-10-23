@@ -40,7 +40,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
 
     step {
       id         = "prepare tf plugin cache"
-      name       = "eu.gcr.io/cloud-builders/gcloud"
+      name       = "gcr.io/cloud-builders/gcloud"
       entrypoint = "bash"
       args       = ["scripts/prepare_tf_plugin_cache.sh"]
       dir        = "github-tests-project"
@@ -88,7 +88,7 @@ resource "google_cloudbuild_trigger" "rjmco_github_tests_apply" {
 
     step {
       id         = "backup tf plugin cache"
-      name       = "eu.gcr.io/cloud-builders/gcloud"
+      name       = "gcr.io/cloud-builders/gcloud"
       entrypoint = "bash"
       args       = ["scripts/backup_tf_plugin_cache.sh"]
       dir        = "github-tests-project"
