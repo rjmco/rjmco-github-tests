@@ -56,6 +56,25 @@ gcloud projects add-iam-policy-binding $TF_VAR_project_id \
   --role=roles/storage.admin
 ```
 
+go-terraform-terragrunt container image creation
+------------------------------------------------
+
+1. Update the versions file [versions.yaml]
+
+2. In [images/go-terraform-terragrunt] execute the `create_local_image.bash` script:
+
+```
+cd images/go-terraform-terragrunt
+./create_local_image.bash
+```
+
+3. Tag the generated local image to the google container image and push it (the versions below are just an example):
+
+```
+docker tag go-terraform-terragrunt:1.15.2-0.13.4-0.25.1 eu.gcr.io/$TF_VAR_project_id/go-terraform-terragrunt:1.15.2-0.13.4-0.25.1
+docker push eu.gcr.io/$TF_VAR_project_id/go-terraform-terragrunt:1.15.2-0.13.4-0.25.1
+```
+
 tf-gcp-simple-network requirements
 ----------------------------------
 
