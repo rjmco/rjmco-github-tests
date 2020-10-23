@@ -3,4 +3,4 @@ alpine: 3.12
 golang: 1.15.3
 google_providers: 3.37.0
 terraform: 0.13.5
-terragrunt: 0.25.1
+terragrunt: 0.25.5
