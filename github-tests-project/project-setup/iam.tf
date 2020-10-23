@@ -23,6 +23,12 @@ data "google_iam_policy" "project_iam_policy" {
     role    = "roles/cloudbuild.serviceAgent"
   }
 
+  # Required for tf-gcp-simple-network tests
+  binding {
+    members = [format("serviceAccount:%s@cloudbuild.gserviceaccount.com", data.google_project.project.number)]
+    role    = "roles/compute.networkAdmin"
+  }
+
   binding {
     members = [format("serviceAccount:service-%s@containerregistry.iam.gserviceaccount.com", data.google_project.project.number)]
     role    = "roles/editor"
