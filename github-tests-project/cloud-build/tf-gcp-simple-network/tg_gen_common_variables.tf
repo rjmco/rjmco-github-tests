@@ -17,7 +17,7 @@ variable "golang_version" {
 }
 
 variable "terraform_version" {
-  default     = "0.13.3"
+  default     = "0.13.4"
   description = "Terraform version which should be used"
   type        = string
 }
