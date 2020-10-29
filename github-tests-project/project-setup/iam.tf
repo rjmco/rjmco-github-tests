@@ -1,4 +1,4 @@
-# Copyright 2020 Ricardo Cordeiro <ricardo.cordeiro@tux.com.pt>
+# Copyright 2020 The Tranquility Base Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
