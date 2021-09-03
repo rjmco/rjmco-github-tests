@@ -11,19 +11,19 @@ variable "region" {
 }
 
 variable "golang_version" {
-  default     = "1.15.2"
+  default     = "1.17.0"
   description = "Golang version which should be used"
   type        = string
 }
 
 variable "terraform_version" {
-  default     = "0.13.4"
+  default     = "1.0.5"
   description = "Terraform version which should be used"
   type        = string
 }
 
 variable "terragrunt_version" {
-  default     = "0.25.1"
+  default     = "0.31.8"
   description = "Terragrunt version which should be used"
   type        = string
 }

@@ -1,6 +1,6 @@
 ---
-alpine: 3.12
-golang: 1.15.3
-google_providers: 3.44.0
-terraform: 0.13.5
-terragrunt: 0.25.5
+alpine: 3.14
+golang: 1.17.0
+google_providers: 3.82.0
+terraform: 1.0.5
+terragrunt: 0.31.8
